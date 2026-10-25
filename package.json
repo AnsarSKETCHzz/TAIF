@@ -1,0 +1,28 @@
+{
+  "name": "trustworthy-adaptive-interfaces",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vite build --config vite.scanner.config.ts --mode background && vite build --config vite.scanner.config.ts --mode scanner && vite build --config vite.scanner.config.ts --mode monitor && vite build --config vite.scanner.config.ts --mode monitor-main && vite build --config vite.scanner.config.ts --mode enhancer && vite build --config vite.scanner.config.ts --mode cosmetic && vite build --config vite.scanner.config.ts --mode scriptlets && vite build --config vite.scanner.config.ts --mode terms && node scripts/install-scanner.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "filters:update": "node scripts/build-filters.mjs --download"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "axe-core": "^4.10.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "jsdom": "^25.0.1",
+    "vitest": "^5.0.5"
+  }
+}

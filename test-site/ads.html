@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TAIF Ad Lab</title>
+<style>body{font:16px/1.5 system-ui,sans-serif;max-width:860px;margin:2rem auto;padding:0 1rem}.slot{min-height:90px;background:#ffe9a8;border:1px dashed #c90;margin:10px 0;display:grid;place-items:center}</style>
+<!-- Real ad-network script: should be blocked by network filtering (EasyList). -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <h1>Ad lab — synthetic page with real ad markup</h1>
+  <p id="content">This paragraph is normal content and must stay visible.</p>
+  <ins class="adsbygoogle slot" id="ad-adsense" style="display:block" data-ad-client="ca-pub-0000000000000000" data-ad-slot="1">AdSense slot</ins>
+  <div id="div-gpt-ad-1234567890-0" class="slot">Google Publisher Tag slot</div>
+  <div class="slot" id="ad-frame-wrap"><iframe id="ad-frame" src="https://googleads.g.doubleclick.net/pagead/ads?client=test" width="300" height="80" title="ad"></iframe></div>
+  <p id="content-2">More normal content between the ads.</p>
+  <div id="late"></div>
+  <script>
+    // An ad inserted after load (lazy-loaded ads must be hidden too).
+    setTimeout(() => { document.getElementById("late").innerHTML = '<ins class="adsbygoogle slot" id="ad-late" style="display:block" data-ad-client="ca-pub-0000000000000000" data-ad-slot="2">Late AdSense slot</ins>'; }, 1500);
+  </script>
+</body>
+</html>

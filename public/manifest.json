@@ -1,0 +1,70 @@
+{
+  "manifest_version": 3,
+  "name": "Trustworthy Adaptive Interfaces",
+  "version": "0.7.0",
+  "description": "Real-time protection from unexpected redirects and ad tabs, one-click page enhancement (incl. CAPTCHAs), and evidence-based review checks.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "webNavigation",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "TAIF Protection",
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "easylist",
+        "enabled": true,
+        "path": "rulesets/easylist.json"
+      },
+      {
+        "id": "ublock",
+        "enabled": true,
+        "path": "rulesets/ublock.json"
+      },
+      {
+        "id": "shield",
+        "enabled": true,
+        "path": "rulesets/shield.json"
+      },
+      {
+        "id": "easyprivacy",
+        "enabled": false,
+        "path": "rulesets/easyprivacy.json"
+      }
+    ]
+  },
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "blocked.html",
+        "assets/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

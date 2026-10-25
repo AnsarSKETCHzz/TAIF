@@ -1,0 +1,4 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Site A auto redirect</title></head>
+<body style="font:16px system-ui;margin:2rem"><h1>Redirecting without a click…</h1><p>In 2 seconds this page sends you to a hop on site B, which forwards to site C.</p>
+<script>setTimeout(() => location.replace(`${location.protocol}//b.localhost:${location.port}/test-site/redirect/hop.html`), 2000);</script></body></html>

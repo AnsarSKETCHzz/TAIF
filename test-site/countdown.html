@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TAIF Fake Countdown Lab</title>
+<style>body{font:16px/1.5 system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 1rem;color:#182934}.deal{padding:1.2rem;border:2px solid #c62828;border-radius:12px}.countdown{font:700 2rem ui-monospace,monospace;color:#c62828}</style></head>
+<body>
+  <h1>Flash deal — synthetic</h1>
+  <div class="deal">
+    <p><strong>Hurry! Offer ends soon.</strong> 70% off, only today.</p>
+    <p>Deal ends in <span class="countdown" id="timer">01:00</span></p>
+    <p>Only 2 left in stock.</p>
+  </div>
+  <p>Reload this page after ~15 seconds: the countdown starts again at 01:00, which a real deadline would not do. TAIF should report "Countdown restarted when you came back".</p>
+  <script>
+    let left = 60;
+    const el = document.getElementById("timer");
+    setInterval(() => { left = Math.max(0, left - 1); el.textContent = `00:${String(left).padStart(2, "0")}`; }, 1000);
+  </script>
+</body>
+</html>

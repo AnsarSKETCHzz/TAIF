@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TAIF — Trustworthy Adaptive Interfaces</title>
+  <meta name="description" content="TAIF is a free Chrome extension that catches unexpected redirects and pop-unders, blocks ads, enlarges small buttons and CAPTCHAs, highlights Terms & Conditions, and checks whether a website is legit.">
+  <style>
+    :root { --bg:#f6f8f7; --card:#fff; --ink:#14232b; --muted:#56656c; --accent:#0f6b5c; --accent-ink:#fff; --line:#dde5e2; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#0f1719; --card:#172226; --ink:#e7eef0; --muted:#9db0b6; --accent:#3cc4a6; --accent-ink:#06211b; --line:#26363b; } }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 860px; margin: 0 auto; padding: 48px 16px 64px; }
+    h1 { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; margin: 0 0 12px; }
+    .lead { color: var(--muted); font-size: 1.15rem; margin: 0 0 28px; }
+    .btn { display:inline-block; background:var(--accent); color:var(--accent-ink); text-decoration:none; font-weight:600; padding:14px 22px; border-radius:10px; }
+    .btn.ghost { background:transparent; color:var(--ink); border:1px solid var(--line); margin-left:8px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin:36px 0; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; }
+    .card h3 { margin:0 0 6px; font-size:1.05rem; }
+    .card p { margin:0; color:var(--muted); font-size:.95rem; }
+    ol li { margin-bottom: 8px; }
+    code { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:1px 6px; }
+    .note { color:var(--muted); font-size:.9rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>TAIF — Trustworthy Adaptive Interfaces</h1>
+  <p class="lead">A free Chrome extension that warns you when an ad sends you somewhere you didn't choose, blocks ads and pop-unders, makes small buttons and CAPTCHAs bigger, highlights Terms &amp; Conditions, and tells you whether a website looks legit.</p>
+  <a class="btn" href="TAIF-extension.zip" download>Download TAIF (.zip)</a>
+  <a class="btn ghost" href="https://github.com/AnsarSKETCHzz/TAIF">Source on GitHub</a>
+
+  <div class="grid">
+    <div class="card"><h3>Redirect alerts</h3><p>Shows where an unexpected redirect or ad tab came from, and takes you back in one click.</p></div>
+    <div class="card"><h3>Ad &amp; pop-up blocking</h3><p>EasyList and uBlock filter rules, a pop-under guard, and a shield page for known ad sites.</p></div>
+    <div class="card"><h3>Enhance</h3><p>Enlarges buttons, fields and CAPTCHAs up to 3×, with one-click undo.</p></div>
+    <div class="card"><h3>Terms highlight</h3><p>Highlights "Terms and Conditions" wording on every site so you don't miss it.</p></div>
+    <div class="card"><h3>Trust check</h3><p>A 0–100 score from site popularity, domain age, ad lists and reviews.</p></div>
+  </div>
+
+  <h2>Install (1 minute)</h2>
+  <ol>
+    <li>Download <a href="TAIF-extension.zip" download>TAIF-extension.zip</a> and unzip it to a folder you'll keep (e.g. <code>Documents\TAIF</code>).</li>
+    <li>Open <code>chrome://extensions</code> in Chrome (or <code>edge://extensions</code> in Edge).</li>
+    <li>Turn on <b>Developer mode</b> (top-right).</li>
+    <li>Click <b>Load unpacked</b> and choose the unzipped folder (the one that contains <code>manifest.json</code>).</li>
+    <li>Pin TAIF from the puzzle-piece menu and click it on any website.</li>
+  </ol>
+  <p class="note">Don't delete the folder afterwards — Chrome loads the extension from it. To update, download the new zip, replace the folder's contents, and click <b>Reload</b> on TAIF in <code>chrome://extensions</code>.</p>
+</main>
+</body>
+</html>

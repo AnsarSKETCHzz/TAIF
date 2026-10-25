@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TAIF Review Lab</title>
+<meta property="og:type" content="product">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"AeroRun Running Shoe","sku":"AR-100","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"1250"}}</script>
+<style>body{font:15px/1.5 system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 1rem}.review{border-bottom:1px solid #ddd;padding:10px 0}</style></head>
+<body>
+  <h1>AeroRun Running Shoe — synthetic</h1>
+  <p>4.6 out of 5 · 312 ratings</p>
+  <button>Add to cart</button>
+  <h2>Customer reviews</h2>
+  <div id="reviews"></div>
+  <script>
+    const reviews = [
+      ["Great product, highly recommend to everyone!", 5, "2026-03-02", true],
+      ["Great product, highly recommend to everyone!", 5, "2026-03-02", true],
+      ["Great product, highly recommend to everyone!", 5, "2026-03-03", false],
+      ["Value for money. Nice product.", 5, "2026-03-02", false],
+      ["Very good, love it", 5, "2026-03-03", false],
+      ["Awesome, must buy", 5, "2026-03-02", false],
+      ["This phone has an amazing camera and battery life lasts two days.", 5, "2026-03-03", false],
+      ["This phone charges fast and the screen is bright and sharp.", 5, "2026-03-02", false],
+      ["This phone is light and the camera is great in low light.", 4, "2026-03-03", false],
+      ["Comfortable shoe for long runs, sizing is a bit narrow though.", 4, "2025-11-14", true],
+      ["Sole wore out after two months of daily use.", 2, "2026-01-20", true],
+      ["Good quality, five stars", 5, "2026-03-02", false]
+    ];
+    // Rendered by JavaScript on purpose: client-side rendering alone must not be treated as suspicious.
+    document.getElementById("reviews").innerHTML = reviews.map(([text, rating, date, verified]) =>
+      `<div class="review"><span class="review-author">Buyer ${Math.random().toString(36).slice(2, 6)}</span> · <span aria-label="${rating} out of 5 stars">${"★".repeat(rating)}</span> · <time datetime="${date}">${date}</time>${verified ? " · Verified Purchase" : ""}<p class="review-body">${text}</p></div>`).join("");
+  </script>
+</body>
+</html>

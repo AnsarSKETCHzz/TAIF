@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TAIF Protection</title>
+    <!-- Sized before any script runs: Chrome does not show a popup whose document has no height. -->
+    <style>
+      body.popup{margin:0;width:400px;min-height:180px;background:#0d2731;color:#fff;font:13px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+      .tp-boot{padding:18px 16px}
+      .tp-boot strong{display:block;font-size:16px;margin-bottom:6px}
+    </style>
+  </head>
+  <body class="popup">
+    <div id="root">
+      <div class="tp-boot" role="status">
+        <strong>TAIF Protection</strong>
+        Starting… If this message stays, the popup script failed to load. Open chrome://extensions, click Errors on TAIF, then Reload.
+      </div>
+    </div>
+    <script type="module" src="/src/boot.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TAIF Popunder Lab</title>
+  <style>
+    body{font:16px/1.5 system-ui,sans-serif;max-width:860px;margin:2rem auto;padding:0 1rem;color:#182934}
+    section{padding:1rem;margin:1rem 0;border:1px solid #ccd6d8;border-radius:10px}
+    .player{position:relative;width:320px;height:120px;background:#111;color:#fff;display:grid;place-items:center;border-radius:8px;cursor:pointer}
+    .player .overlay{position:absolute;inset:0}
+    #overlay-link{position:fixed;inset:0;z-index:9999;opacity:0;display:none}
+  </style>
+</head>
+<body>
+  <h1>Popunder lab — synthetic reproductions of real ad techniques</h1>
+  <p>Site B (<code>b.localhost</code>) stands in for an ad site. #5 uses a real domain from EasyList's ad-popup list (no request is ever made: TAIF stops it first).</p>
+
+  <section><h2>1 · window.open from a video-overlay click</h2>
+    <div class="player" id="t1"><div class="overlay"></div>▶ Play</div></section>
+  <section><h2>2 · Invisible full-page link overlay</h2>
+    <button id="arm2" type="button">Arm overlay</button> then click anywhere.</section>
+  <section><h2>3 · Popup through a hidden iframe's window.open</h2>
+    <div class="player" id="t3">▶ Play (iframe trick)</div></section>
+  <section><h2>4 · Script-generated click on a target=_blank link</h2>
+    <div class="player" id="t4">▶ Play (synthetic link)</div></section>
+  <section><h2>5 · Forced redirect to a listed ad network</h2>
+    <div class="player" id="t5">▶ Play (forced redirect)</div></section>
+  <section><h2>6 · about:blank popunder</h2>
+    <div class="player" id="t6">▶ Play (about:blank)</div></section>
+  <section><h2>7 · Legitimate: a real link and a real share button (must still open)</h2>
+    <a id="legit-link" href="" target="_blank" rel="noopener">Open article on site B</a>
+    <button id="legit-share" type="button">Share</button></section>
+
+  <a id="overlay-link" href="" aria-label=""></a>
+  <script>
+    const b = (path) => `${location.protocol}//b.localhost:${location.port}/test-site/redirect/landing.html?${path}`;
+    document.getElementById("legit-link").href = b("legit-link");
+    document.getElementById("overlay-link").href = b("overlay-link");
+    document.getElementById("t1").addEventListener("click", () => window.open(b("t1-window-open"), "_blank"));
+    document.getElementById("arm2").addEventListener("click", () => { document.getElementById("overlay-link").style.display = "block"; });
+    document.getElementById("t3").addEventListener("click", () => {
+      const frame = document.createElement("iframe");
+      frame.style.display = "none";
+      document.body.append(frame);
+      frame.contentWindow.open(b("t3-iframe-open"), "_blank");
+    });
+    document.getElementById("t4").addEventListener("click", () => {
+      const a = document.createElement("a");
+      a.href = b("t4-synthetic-link");
+      a.target = "_blank";
+      a.click();
+    });
+    document.getElementById("t5").addEventListener("click", () => { location.href = "https://0i0i0i0.com/landing?zone=1"; });
+    document.getElementById("t6").addEventListener("click", () => {
+      const w = window.open("", "_blank");
+      if (w) w.location = b("t6-about-blank");
+    });
+    document.getElementById("legit-share").addEventListener("click", () => window.open(b("legit-share"), "_blank", "width=500,height=400"));
+  </script>
+</body>
+</html>

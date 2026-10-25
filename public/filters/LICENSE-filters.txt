@@ -1,0 +1,3 @@
+EasyList and EasyPrivacy are dual-licensed under GPLv3 and CC BY-SA 3.0 (https://easylist.to/pages/licence.html); uBlock filters are GPLv3 (https://github.com/uBlockOrigin/uAssets).
+Source lists: https://easylist.to/easylist/easylist.txt, https://ublockorigin.github.io/uAssets/filters/filters.txt, https://easylist.to/easylist/easyprivacy.txt
+Converted by TAIF (scripts/build-filters.mjs); unsupported filters were skipped, not altered.

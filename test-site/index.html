@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TAIF Synthetic Scenario Lab</title>
+  <style>
+    body{font:16px/1.5 system-ui,sans-serif;max-width:900px;margin:2rem auto;padding:0 1rem;color:#182934}
+    .low{color:#aaa;background:#fff}.tiny{font-size:8px;opacity:.5}.target{width:14px;height:14px}
+    section{padding:1rem;margin:1rem 0;border:1px solid #ccd6d8;border-radius:10px}
+  </style>
+</head>
+<body>
+  <h1>TAIF Synthetic Scenario Lab</h1>
+  <p>Only for local, controlled extension testing. All values below are synthetic.</p>
+  <p><b>Live-feature labs:</b> <a href="http://a.localhost:5173/test-site/redirect/">Redirect lab (A)</a> · <a href="overlay.html?mode=reset">Timer &amp; close-button lab (B)</a> · <a href="fake-alert.html">Fake alert &amp; notification lab (C)</a> · <a href="visible-area.html">Visible-area lab (D)</a> · <a href="countdown.html">Fake countdown (2)</a> · <a href="choices.html">Hidden choices &amp; small print (10, 11)</a> · <a href="enhance.html">Analyze &amp; Enhance lab</a> · <a href="reviews.html">Review trust lab</a></p>
+  <section><h2>1 · Contrast</h2><p class="low">This intentionally low contrast text is a synthetic test signal.</p></section>
+  <section><h2>2 · Urgency</h2><p role="timer" id="timer">00:05</p><button id="reset">Simulate timer reset</button></section>
+  <section><h2>3 · Admin indicator</h2><a href="/admin">Admin dashboard</a></section>
+  <section><h2>4 · Scarcity</h2><p>Only 2 items left.</p></section>
+  <section><h2>5 / 8 · Form and accessibility</h2><form novalidate><input aria-label="Synthetic name" placeholder="Name"><input placeholder="Unlabeled synthetic field"><button class="target">Go</button></form></section>
+  <section><h2>6 · Performance</h2><p>Navigation timing is measured locally by the browser.</p></section>
+  <section><h2>7 · Sensitive pattern</h2><p>synthetic.person@example.test · +1 555 010 2000 · api_key_abcdefghijklmnop1234</p></section>
+  <section><h2>9 · Compare page</h2><p>Price: $19.99</p><a href="comparison.html">Open synthetic comparison page</a></section>
+  <section><h2>10 · Subscription terms</h2><p class="tiny">Trial converts to paid subscription and automatically renews monthly. Cancel at any time.</p></section>
+  <section><h2>11 · Visual emphasis</h2><p class="tiny">Synthetic small-print disclosure for visibility review.</p></section>
+  <script>document.querySelector("#reset").addEventListener("click",()=>{document.querySelector("#timer").textContent="10:00"});</script>
+</body>
+</html>

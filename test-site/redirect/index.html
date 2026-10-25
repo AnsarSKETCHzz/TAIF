@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TAIF Redirect Lab (site A)</title>
+  <style>body{font:16px/1.5 system-ui,sans-serif;max-width:860px;margin:2rem auto;padding:0 1rem;color:#182934}section{padding:1rem;margin:1rem 0;border:1px solid #ccd6d8;border-radius:10px}.fake-ad{display:inline-block;padding:1rem 1.4rem;background:#c62828;color:#fff;font-weight:700;border-radius:8px;cursor:pointer}</style>
+</head>
+<body>
+  <h1>TAIF Redirect Lab — site A</h1>
+  <p>Open this page at <code>http://a.localhost:5173/test-site/redirect/</code>. Sites B and C are <code>b.localhost</code> and <code>c.localhost</code> (Chrome resolves <code>*.localhost</code> to this machine). All synthetic.</p>
+  <section><h2>1 · Same-domain navigation (no alert)</h2><a id="same" href="page2.html">Open another page on site A</a></section>
+  <section><h2>2 · Expected external link (informational only)</h2><a id="external" href="" data-host="b">Read the article on site B</a></section>
+  <section><h2>3 · Unexpected redirect after clicking a non-link</h2><div class="fake-ad" id="play" role="button" tabindex="0">▶ Play movie</div></section>
+  <section><h2>4 · Advertisement opens a new tab</h2><div class="fake-ad" id="popunder" role="button" tabindex="0">Download HD</div></section>
+  <section><h2>5 · Multi-hop chain (A → B → C) with no click</h2><a id="auto" href="auto-redirect.html">Open the auto-redirect page (it redirects by itself after 2s)</a></section>
+  <section><h2>12 · Legitimate external link in a new tab (not malicious)</h2><a id="external-tab" href="" data-host="c" target="_blank" rel="noopener">Open docs on site C in a new tab</a></section>
+  <script>
+    const other = (host, path) => `${location.protocol}//${host}.localhost:${location.port}${path}`;
+    document.querySelectorAll("a[data-host]").forEach((a) => { a.href = other(a.dataset.host, "/test-site/redirect/landing.html"); });
+    document.querySelector("#play").addEventListener("click", () => { location.href = other("b", "/test-site/redirect/landing.html?ref=ad&session=SECRET"); });
+    document.querySelector("#popunder").addEventListener("click", () => window.open(other("b", "/test-site/redirect/landing.html?popunder=1"), "_blank"));
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TAIF Visible-Area Lab</title>
+<style>body{font:16px/1.5 system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 1rem}.filler{height:1600px;border-left:4px solid #dde5e7;padding-left:1rem;color:#5b6d74}.lure{padding:1.2rem;background:#fff4d6;border:2px solid #e0a100;border-radius:10px}</style></head>
+<body>
+  <h1>TAIF Visible-Area Lab</h1>
+  <p>After 2 seconds a suspicious advertisement is inserted far below. TAIF analyzes it only when you scroll it into view.</p>
+  <div class="filler">Scroll down…</div>
+  <div id="slot"></div>
+  <script>setTimeout(() => { const ad = document.createElement("div"); ad.className = "lure"; ad.innerHTML = "<strong>Verify you are human</strong><p>Click Allow to continue watching your video.</p>"; document.querySelector("#slot").append(ad); }, 2000);</script>
+</body>
+</html>

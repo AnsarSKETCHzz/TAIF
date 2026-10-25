@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TAIF Overlay Lab</title>
+  <style>
+    body{font:16px/1.5 system-ui,sans-serif;max-width:860px;margin:2rem auto;padding:0 1rem}
+    #ad{position:fixed;inset:0;background:rgba(10,20,30,.92);color:#fff;display:grid;place-items:center;z-index:1000}
+    #ad .box{background:#22313a;padding:2rem;border-radius:12px;text-align:center;min-width:280px;position:relative}
+    #close{position:absolute;top:8px;right:8px;width:32px;height:32px;border:0;border-radius:50%;font-size:18px}
+  </style>
+</head>
+<body>
+  <h1>TAIF Overlay Lab</h1>
+  <p>Modes: <a href="?mode=legit">legit</a> (close after 5s, no alert) · <a href="?mode=reset">reset</a> (countdown resets twice) · <a href="?mode=noclose">noclose</a> (no close control).</p>
+  <div id="ad" role="dialog" aria-label="Advertisement"><div class="box"><p>Advertisement</p><p>You can close this ad in <span class="countdown" id="count">00:05</span></p><button id="close" aria-label="Close ad" hidden>×</button></div></div>
+  <script>
+    const mode = new URLSearchParams(location.search).get("mode") || "legit";
+    const count = document.querySelector("#count"), close = document.querySelector("#close");
+    let left = 5, resets = mode === "reset" ? 2 : 0;
+    close.addEventListener("click", () => document.querySelector("#ad").remove());
+    const tick = setInterval(() => {
+      left -= 1;
+      if (left <= 1 && resets > 0) { resets -= 1; left = 8; }
+      count.textContent = `00:0${Math.max(left, 0)}`;
+      if (left <= 0) { clearInterval(tick); if (mode !== "noclose") close.hidden = false; }
+    }, 1000);
+  </script>
+</body>
+</html>

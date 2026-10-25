@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TAIF Enhance Lab</title>
+<style>
+  body{font:14px/1.4 system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 1rem;color:#182934}
+  section{padding:1rem;margin:1rem 0;border:1px solid #ccd6d8;border-radius:10px}
+  .tiny-btn{font-size:11px;padding:2px 6px}.cta{background:#0b57d0;color:#fff;border:0;border-radius:6px;font-size:12px;padding:4px 10px}
+  .otp input{width:22px;height:24px;font-size:12px;text-align:center}
+  .small{font-size:10px;color:#666}.err{color:#b3261e;font-size:11px}
+  .captcha-box{display:inline-block;border:1px solid #ccc;padding:6px;border-radius:6px;background:#f9f9f9}
+  .captcha-img{width:120px;height:36px;background:repeating-linear-gradient(45deg,#ddd 0 6px,#bbb 6px 12px);font:italic 700 18px serif;letter-spacing:4px;display:flex;align-items:center;justify-content:center}
+  .fake-frame{width:300px;height:76px;border:1px solid #d3d3d3;border-radius:3px}
+</style></head>
+<body>
+  <h1>TAIF Enhance Lab — synthetic</h1>
+  <p>Open the TAIF popup → <b>Enhance page</b> → <b>Analyze &amp; Enhance Page</b>. Every change can be undone one by one or all at once.</p>
+  <section><h2>Sign in</h2>
+    <form onsubmit="event.preventDefault()">
+      <label for="email" class="small">Email</label><br><input id="email" type="email" style="height:22px;font-size:12px"><br>
+      <label for="pw" class="small">Password</label><br><input id="pw" type="password" style="height:22px;font-size:12px"><br>
+      <p class="err" role="alert">Error: password is required.</p>
+      <button class="cta" type="submit">Continue</button> <button class="tiny-btn" type="button">Forgot?</button> <a href="#" style="display:inline-block;font-size:11px">Sign up</a>
+    </form>
+  </section>
+  <section><h2>Verification code</h2>
+    <p class="small">Enter the 6-digit one-time code we sent you.</p>
+    <div class="otp"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"></div>
+    <button class="tiny-btn">Verify</button>
+  </section>
+  <section><h2>Text CAPTCHA</h2>
+    <div class="captcha-box" id="captcha">
+      <p class="small">Type the characters you see in the image.</p>
+      <div class="captcha-img" role="img" aria-label="captcha image">x7Kp2</div>
+      <input name="captcha_answer" style="height:22px;font-size:12px;width:100px"> <button class="tiny-btn">↻</button>
+    </div>
+  </section>
+  <section><h2>Frame CAPTCHA stand-in</h2>
+    <p class="small">A same-size stand-in for a reCAPTCHA checkbox frame (title contains "reCAPTCHA").</p>
+    <div class="g-recaptcha"><iframe class="fake-frame" title="reCAPTCHA" srcdoc="<p style='font:14px sans-serif;margin:24px'>☐ I'm not a robot</p>"></iframe></div>
+  </section>
+  <section><h2>Checkout (try Simulated risk)</h2>
+    <p class="small">By clicking Pay now you agree that your plan automatically renews monthly. Non-refundable.</p>
+    <button class="cta" onclick="alert('Payment submitted (synthetic)')">Pay now</button>
+  </section>
+  <p class="small">Footer small print: © synthetic company. All rights reserved. This text is intentionally tiny.</p>
+</body>
+</html>
